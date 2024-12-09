@@ -64,7 +64,9 @@ const DataPage = () => {
 
     return (
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <h1>Lista Prodotti</h1>
+            <h1>JWT</h1>
+            <pre>{localStorage.getItem('jwt')}</pre>
+           <h1>Lista Prodotti</h1>
             {/* <h2>{data}</h2> */}
             <pre>{JSON.stringify(data, null, 2) }</pre>
         </div>

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const Home = () => {
 
   const client_id = "a377054a-6449-472a-8972-cf0026b6adcb&nonce=BlvTACfShe";
-  const redirect_uri = "https://calm-beach-00fd54803.4.azurestaticapps.net/";
+  const redirect_uri = "https://calm-beach-00fd54803.4.azurestaticapps.net/data";
   const scope = "openid";
   const response_type = "openid";
   const prompt = "login";
@@ -20,8 +20,9 @@ const Home = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search)
     console.log("queryParams", queryParams);
-    if(queryParams) {
-      setJwt(queryParams.has('id_token'));
+    if(queryParams.has('id_token')) {
+      setJwt(queryParams.get('id_token'));
+      localStorage.set("jwt", queryParams.get('id_token'));
       console.log("id_token", jwt);
       navigate('/', { replace: true })
       //check if valid
