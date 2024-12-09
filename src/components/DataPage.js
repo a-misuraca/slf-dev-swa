@@ -1,10 +1,30 @@
 
 import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const DataPage = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+  // const [error, setError] = useState('')
+  const [jwt, setJwt] = useState('')
+
+  const location = useLocation()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search)
+    console.log("queryParams", queryParams);
+    if(queryParams.has('id_token')) {
+      setJwt(queryParams.get('id_token'));
+      localStorage.set("jwt", queryParams.get('id_token'));
+      console.log("id_token", jwt);
+      navigate('/', { replace: true })
+      //check if valid
+      //
+    }
+  }, [jwt,location.search,navigate ])
 
     useEffect(() => {
         const fetchData = async () => {

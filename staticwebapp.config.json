@@ -7,10 +7,7 @@
             "route": "/logout"
         },
         {
-            "route": "/data",
-            "allowedRoles": [
-                "authenticated"
-            ]
+            "route": "/data"
         }
     ],
     "responseOverrides": {
