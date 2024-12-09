@@ -11,8 +11,8 @@ const Home = () => {
   const code_challenge_method = "S256";
   const code_challenge ="s22lcbJQQV-NZDMHSDRT7i0_4UJXR81BmqNW0TfHoM8";
 
-  const [error, setError] = useState('')
-  const [swt, setJwt] = useState('')
+  // const [error, setError] = useState('')
+  const [jwt, setJwt] = useState('')
 
   const location = useLocation()
   const navigate = useNavigate();
@@ -22,12 +22,12 @@ const Home = () => {
     console.log("queryParams", queryParams);
     if(queryParams) {
       setJwt(queryParams.has('id_token'));
-      console.log("id_token", queryParams.get('id_token'));
+      console.log("id_token", jwt);
       navigate('/', { replace: true })
       //check if valid
       //
     }
-  }, [])
+  }, [jwt,location.search,navigate ])
 
 
   const doLogin  = async () => {

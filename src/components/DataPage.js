@@ -26,7 +26,8 @@ const DataPage = () => {
                     redirect: "follow"
                 };
 
-                const response = await fetch("https://dev-api-slf.azure-api.net/heroku/v2/pg/listaProdotti", requestOptions)
+                // const response = 
+                await fetch("https://dev-api-slf.azure-api.net/heroku/v2/pg/listaProdotti", requestOptions)
                     .then(async (response) => {
                         const result = await response.json();
                         // console.log("result", result);
