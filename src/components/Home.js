@@ -2,14 +2,13 @@ import React from 'react'
 
 const Home = () => {
 
-  
   const client_id = "a377054a-6449-472a-8972-cf0026b6adcb&nonce=BlvTACfShe";
   const redirect_uri = "https://calm-beach-00fd54803.4.azurestaticapps.net/data";
   const scope = "openid";
-  const response_type = "openid";
+  const response_type = "id_token";
   const prompt = "login";
-  const code_challenge_method = "S256";
-  const code_challenge ="s22lcbJQQV-NZDMHSDRT7i0_4UJXR81BmqNW0TfHoM8";
+  // const code_challenge_method = "S256";
+  // const code_challenge ="s22lcbJQQV-NZDMHSDRT7i0_4UJXR81BmqNW0TfHoM8";
 
   const doLogin  = async () => {
     console.log('doLogin');  
@@ -18,9 +17,9 @@ const Home = () => {
     redirect_uri=${redirect_uri}&
     scope=${scope}&
     response_type=${response_type}&
-    prompt=${prompt}&
-    code_challenge_method=${code_challenge_method}&
-    code_challenge=${code_challenge}`;
+    prompt=${prompt}`;
+    // &code_challenge_method=${code_challenge_method}&
+    // code_challenge=${code_challenge}`;
   }
 
   return (

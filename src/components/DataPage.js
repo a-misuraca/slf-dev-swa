@@ -13,6 +13,12 @@ const DataPage = () => {
   const location = useLocation()
   const navigate = useNavigate();
 
+  const doLogout  = async () => {
+    console.log('logout');  
+    localStorage.clear();
+    window.location.href ="/";
+  }
+
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search)
     console.log("queryParams", queryParams);
@@ -86,6 +92,7 @@ const DataPage = () => {
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
             <h1>JWT</h1>
             <pre>{localStorage.getItem('jwt')}</pre>
+            <button onClick={()=> doLogout()}> Logout</button>
            <h1>Lista Prodotti</h1>
             {/* <h2>{data}</h2> */}
             <pre>{JSON.stringify(data, null, 2) }</pre>
