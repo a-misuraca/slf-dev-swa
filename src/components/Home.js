@@ -3,7 +3,8 @@ import React from 'react'
 const Home = () => {
 
   const client_id = "a377054a-6449-472a-8972-cf0026b6adcb&nonce=1T2lCMSZKz";
-  const redirect_uri = "https://calm-beach-00fd54803.4.azurestaticapps.net/data";
+  const redirect_uri = "https://calm-beach-00fd54803.4.azurestaticapps.net/data/";
+
   const scope = "openid";
   const response_type = "id_token";
   const prompt = "login";
