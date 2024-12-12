@@ -19,7 +19,7 @@
       "azureActiveDirectory": {
         "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
         "registration": {
-          "openIdIssuer": "https://access4guests.ciamlogin.com/6ceef9ef-0076-4172-bec1-0116856dae6d/v2.0",
+          "openIdIssuer": "https://access4guests.ciamlogin.com/6ceef9ef-0076-4172-bec1-0116856dae6d/",
           "clientIdSettingName": "CLIENT_ID",
           "clientSecretSettingName": "CLIENT_SECRET"
         }
