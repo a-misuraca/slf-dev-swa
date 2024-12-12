@@ -6,6 +6,18 @@
 import { LogLevel } from "@azure/msal-browser";
 
 export const msalConfig = {
+  routes: [
+    {
+      route: "/*",
+      allowedRoles: ["authenticated"],
+    },
+  ],
+  responseOverrides: {
+    401: {
+      statusCode: 302,
+      redirect: "/.auth/login/aad",
+    },
+  },
   auth: {
     clientId: "a377054a-6449-472a-8972-cf0026b6adcb", // This is the ONLY mandatory field that you need to supply.
     authority: "https://access4guests.ciamlogin.com/", // Replace the placeholder with your tenant subdomain
