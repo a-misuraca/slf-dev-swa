@@ -1,19 +1,21 @@
 {
-    "navigationFallback": {
-        "rewrite": "/index.html"
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
     },
-    "routes": [
-        {
-            "route": "/data",
-            "allowedRoles": [
-                "authenticated"
-            ]
-        }
-    ],
-    "responseOverrides": {
-        "401": {
-            "statusCode": 302,
-            "redirect": "/"
-        }
+    {
+      "route": "/data",
+      "allowedRoles": ["authenticated"]
     }
+  ],
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/"
+    }
+  }
 }
