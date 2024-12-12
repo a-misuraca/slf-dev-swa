@@ -52,11 +52,9 @@ import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig";
 import ProfileInfo from "./components/ProfileInfo";
 
-const App = () => {
-  const publicClientApplication = new PublicClientApplication(msalConfig);
-
+const App = ({ instance }) => {
   return (
-    <MsalProvider instance={publicClientApplication}>
+    <MsalProvider instance={instance}>
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
