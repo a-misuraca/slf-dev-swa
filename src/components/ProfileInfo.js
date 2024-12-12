@@ -15,6 +15,7 @@ const ProfileInfo = () => {
       .then((response) => {
         callMsGraph(response.accessToken).then((response) => {
           console.log(response);
+          console.log(accounts);
           setGraphData(response);
         });
       });
