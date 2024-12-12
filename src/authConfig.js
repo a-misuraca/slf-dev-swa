@@ -9,7 +9,8 @@ export const msalConfig = {
   auth: {
     clientId: "a377054a-6449-472a-8972-cf0026b6adcb", // This is the ONLY mandatory field that you need to supply.
     authority: "https://access4guests.ciamlogin.com/", // Replace the placeholder with your tenant subdomain
-    redirectUri: "https://calm-beach-00fd54803.4.azurestaticapps.net/data", // Points to window.location.origin. You must register this URI on Microsoft Entra admin center/App Registration.
+    redirectUri:
+      "https://calm-beach-00fd54803.4.azurestaticapps.net/.auth/login/aad/callback", // Points to window.location.origin. You must register this URI on Microsoft Entra admin center/App Registration.
     postLogoutRedirectUri: "https://calm-beach-00fd54803.4.azurestaticapps.net", // Indicates the page to navigate after logout.
     navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
   },
