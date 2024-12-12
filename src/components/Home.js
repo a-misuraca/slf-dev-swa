@@ -15,7 +15,7 @@ const Home = () => {
 
   // https://access4guests.ciamlogin.com/access4guests.onmicrosoft.com/oauth2/v2.0/authorize?
   // client_id=a377054a-6449-472a-8972-cf0026b6adcb&nonce=1T2lCMSZKz&redirect_uri=https://calm-beach-00fd54803.4.azurestaticapps.net/data/&scope=openid&response_type=id_token&prompt=login
-  const doLogin = async () => {
+  /*  const doLogin = async () => {
     console.log("doLogin");
     window.location.href = `https://access4guests.ciamlogin.com/access4guests.onmicrosoft.com/oauth2/v2.0/authorize?
     client_id=${client_id}&
@@ -23,9 +23,8 @@ const Home = () => {
     scope=${scope}&
     response_type=${response_type}&
     prompt=${prompt}`;
-    // &code_challenge_method=${code_challenge_method}&
-    // code_challenge=${code_challenge}`;
-  };
+    
+  }; */
   const handleLogin = () => {
     instance.loginRedirect(loginRequest).catch((e) => {
       console.log(e, "loginAccount");
@@ -34,7 +33,7 @@ const Home = () => {
   };
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Login Example V1</h1>
+      <h1>Login Example V1.1</h1>
       <button onClick={() => handleLogin()}> Login</button>
     </div>
   );
