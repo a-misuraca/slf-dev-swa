@@ -19,9 +19,25 @@ const ProfileInfo = () => {
         });
       });
   }
+  function handleLogout() {
+    instance
+      .logoutRedirect()
+      .then(() => {
+        console.log("User logged out");
+      })
+      .catch((error) => {
+        console.error("Logout error: ", error);
+      });
+  }
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      {" "}
+      <button
+        variant="secondary"
+        onClick={handleLogout}
+        style={{ marginLeft: "10px" }}
+      >
+        Logout
+      </button>
       {accounts && (
         <button variant="secondary" onClick={RequestProfileData}>
           Request Profile Information
