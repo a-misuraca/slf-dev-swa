@@ -4,10 +4,6 @@
   },
   "routes": [
     {
-      "route": "/*",
-      "allowedRoles": ["authenticated"]
-    },
-    {
       "route": "/data",
       "allowedRoles": ["authenticated"]
     }
