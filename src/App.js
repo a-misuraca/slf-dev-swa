@@ -1,7 +1,6 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-
 // // https://calm-beach-00fd54803.4.azurestaticapps.net/
 
 // // id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Inp4ZWcyV09OcFRrd041R21lWWN1VGR0QzZKMCJ9.eyJhdWQiOiJhMzc3MDU0YS02NDQ5LTQ3MmEtODk3Mi1jZjAwMjZiNmFkY2IiLCJpc3MiOiJodHRwczovLzZjZWVmOWVmLTAwNzYtNDE3Mi1iZWMxLTAxMTY4NTZkYWU2ZC5jaWFtbG9naW4uY29tLzZjZWVmOWVmLTAwNzYtNDE3Mi1iZWMxLTAxMTY4NTZkYWU2ZC92Mi4wIiwiaWF0IjoxNzMzNzUyMDUxLCJuYmYiOjE3MzM3NTIwNTEsImV4cCI6MTczMzc1NTk1MSwiYWlvIjoiQVdRQW0vOFlBQUFBYTJ2Zkg1ODRCU2g2UWlydGhsd1g3MitEN28ycVdiOWtiZXNxMlBUZDhaY3ZrTE1tZFdQdGtEWmlUY0NlYzhCZUlmUXF1TC9pNk1oSjlXay9UU0ZiOFl1ZmF6ZjdmVkh0YVJFcEYvREcwTHNGVjlYM09CTnMrMTJSejVnZ2NmS3ciLCJub25jZSI6Im5MTUV6TVd2THMiLCJyaCI6IjEuQVpnQTdfbnViSFlBY2tHLXdRRVdoVzJ1YlVvRmQ2TkpaQ3BIaVhMUEFDYTJyY3VZQUtLWUFBLiIsInN1YiI6IktjU2RUdDBGZXFNZjJfM2JXRVdhNFM0LXVja0pwakNxYmR5TzRuT3VZX0UiLCJ0aWQiOiI2Y2VlZjllZi0wMDc2LTQxNzItYmVjMS0wMTE2ODU2ZGFlNmQiLCJ1dGkiOiJIY3BuZ01sdmFVaVA3Q1VGS3BrQkFBIiwidmVyIjoiMi4wIn0.mmwyh6N4lAolkQijzjZR8o2sp7R4X4ZHyhLK-gkDbnlWP2H4kZXWUQ7PyZEMNY8N8QB2mM8GJs2cEOdCZ11hiIz9220J5MsQ8sZoJF-zGTc-bkhAtHm4-mcpsD3t01hLMBoIfhtlSB0e0tA4AmnbUzolWU8oK-GwRpgDW3Qc8LdKeTzFpx4-TZx2-r8jGOx8eNdFApMpTQ-7Bbn4ZmzqQA02oy3nNP8lhOC-5PA1Mf9qdT8aH22LMO3tKT42P643l9YQwbMieRz3rM0hJJjXVwUCGHgFRiVV7-dw0UywnXPg5xJp0DeaXsgwD7kRns4KKJr3Sl2bwNybVk5svUqvQw&session_state=714f5f4e-a4b7-4f18-8394-ebe49d430927
@@ -20,7 +19,6 @@
 //   //salvo id_token
 //   //cancello id_token da url
 //   //
-
 
 //   return (
 //     <div className="App">
@@ -44,25 +42,32 @@
 
 // export default App;
 
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from "./components/Home";
+import LogoutPage from "./components/LogoutPage";
+import DataPage from "./components/DataPage";
 
-import Home from './components/Home';
-import LogoutPage from './components/LogoutPage';
-import DataPage from './components/DataPage';
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import { msalConfig } from "./authConfig";
+import ProfileInfo from "./components/ProfileInfo";
 
 const App = () => {
-  return (
+  const publicClientApplication = new PublicClientApplication(msalConfig);
 
-<Router>
-  <Routes>
-    <Route exact path="/" element={<Home/>}/>
-    <Route exact path="/data" element={<DataPage/>}/>
-    <Route exact path="/logout" element={<LogoutPage/>}/>
-  </Routes>
-</Router>
-    
+  return (
+    <MsalProvider instance={publicClientApplication}>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/data" element={<ProfileInfo />} />
+          {/*   <Route exact path="/data" element={<DataPage />} />
+          <Route exact path="/logout" element={<LogoutPage />} /> */}
+        </Routes>
+      </Router>
+    </MsalProvider>
   );
 };
 
