@@ -3,13 +3,13 @@ import { loginRequest } from "../authConfig";
 import { useMsal } from "@azure/msal-react";
 const Home = () => {
   const { instance, accounts } = useMsal();
-  const client_id = "a377054a-6449-472a-8972-cf0026b6adcb&nonce=1T2lCMSZKz";
+  /* const client_id = "a377054a-6449-472a-8972-cf0026b6adcb&nonce=1T2lCMSZKz";
   const redirect_uri =
     "https://calm-beach-00fd54803.4.azurestaticapps.net/data/";
 
   const scope = "openid";
   const response_type = "id_token";
-  const prompt = "login";
+  const prompt = "login"; */
   // const code_challenge_method = "S256";
   // const code_challenge ="s22lcbJQQV-NZDMHSDRT7i0_4UJXR81BmqNW0TfHoM8";
 
