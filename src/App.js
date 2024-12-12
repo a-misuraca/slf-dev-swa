@@ -47,10 +47,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./components/Home";
 
-import { PublicClientApplication } from "@azure/msal-browser";
-import { MsalProvider } from "@azure/msal-react";
-import { msalConfig } from "./authConfig";
-import ProfileInfo from "./components/ProfileInfo";
+/* import { PublicClientApplication } from "@azure/msal-browser";
+ */ import { MsalProvider } from "@azure/msal-react";
+/* import { msalConfig } from "./authConfig";
+ */ import ProfileInfo from "./components/ProfileInfo";
 
 const App = ({ instance }) => {
   return (
