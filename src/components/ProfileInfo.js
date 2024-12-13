@@ -7,6 +7,7 @@ const ProfileInfo = () => {
   const [graphData, setGraphData] = useState();
 
   function RequestProfileData() {
+    instance.setActiveAccount(accounts);
     instance
       .acquireTokenSilent({
         ...loginRequest,
