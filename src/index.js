@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import { PublicClientApplication, EventType } from "@azure/msal-browser";
+import { PublicClientApplication } from "@azure/msal-browser";
 import { msalConfig } from "./authConfig";
 
 const msalInstance = new PublicClientApplication(msalConfig);
