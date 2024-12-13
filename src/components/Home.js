@@ -1,6 +1,11 @@
 import React from "react";
 import { loginRequest } from "../authConfig";
-import { useMsal } from "@azure/msal-react";
+import {
+  useMsal,
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from "@azure/msal-react";
+
 const Home = () => {
   const { instance, accounts } = useMsal();
   /* const client_id = "a377054a-6449-472a-8972-cf0026b6adcb&nonce=1T2lCMSZKz";
@@ -32,10 +37,21 @@ const Home = () => {
     console.log(accounts);
   };
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Login Example V1.1</h1>
-      <button onClick={() => handleLogin()}> Login</button>
-    </div>
+    <>
+      <UnauthenticatedTemplate>
+        <div style={{ textAlign: "center", marginTop: "50px" }}>
+          <h1>Login Example V1.1</h1>
+          <button onClick={() => handleLogin()}> Login</button>
+        </div>
+      </UnauthenticatedTemplate>
+      <AuthenticatedTemplate>
+        <div style={{ textAlign: "center", marginTop: "50px" }}>
+          <h1> Sei gia Loggato</h1>
+
+          <button onClick={() => handleLogin()}> Vai al profilo</button>
+        </div>
+      </AuthenticatedTemplate>
+    </>
   );
 };
 export default Home;

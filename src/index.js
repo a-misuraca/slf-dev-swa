@@ -12,8 +12,7 @@ if (
   !msalInstance.getActiveAccount() &&
   msalInstance.getAllAccounts().length > 0
 ) {
-  // Account selection logic is app dependent. Adjust as needed for different use cases.
-  msalInstance.setActiveAccount(msalInstance.getActiveAccount()[0]);
+  msalInstance.setActiveAccount(msalInstance.getAllAccounts()[0]);
 }
 
 // Listen for sign-in event and set active account
@@ -23,6 +22,15 @@ msalInstance.addEventCallback((event) => {
     msalInstance.setActiveAccount(account);
   }
 });
+
+// Controllo se c'è già un account loggato al caricamento
+const activeAccount = msalInstance.getActiveAccount();
+
+if (activeAccount) {
+  console.log("Utente loggato:", activeAccount);
+} else {
+  console.log("Nessun account attivo. Utente non loggato.");
+}
 
 ReactDOM.render(
   <React.StrictMode>
