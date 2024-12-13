@@ -18,6 +18,7 @@ const ProfileInfo = () => {
           if (roles.includes("admin")) {
             console.log("Utente con ruolo admin");
           }
+          console.log(roles);
         }
         callMsGraph(response.accessToken).then((response) => {
           console.log(response);
