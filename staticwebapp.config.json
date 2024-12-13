@@ -4,7 +4,8 @@
   },
   "routes": [
     {
-      "route": "/data"
+      "route": "/data",
+      "allowedRoles": ["authenticated"]
     }
   ],
   "responseOverrides": {
