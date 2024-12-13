@@ -5,13 +5,7 @@ import { callMsGraph } from "../graph";
 const ProfileInfo = () => {
   const { instance, accounts } = useMsal();
   const [graphData, setGraphData] = useState();
-  const account = instance.getActiveAccount();
-  if (account) {
-    const roles = account.idTokenClaims["roles"];
-    if (roles.includes("admin")) {
-      console.log("Utente con ruolo admin");
-    }
-  }
+
   function RequestProfileData() {
     instance
       .acquireTokenSilent({
@@ -19,6 +13,12 @@ const ProfileInfo = () => {
         account: accounts[0],
       })
       .then((response) => {
+        if (accounts) {
+          const roles = accounts[0].idTokenClaims["roles"];
+          if (roles.includes("admin")) {
+            console.log("Utente con ruolo admin");
+          }
+        }
         callMsGraph(response.accessToken).then((response) => {
           console.log(response);
           console.log(accounts);
