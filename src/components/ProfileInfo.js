@@ -13,13 +13,6 @@ const ProfileInfo = () => {
         account: accounts[0],
       })
       .then((response) => {
-        if (accounts) {
-          const roles = accounts[0].idTokenClaims["roles"];
-          if (roles.includes("admin")) {
-            console.log("Utente con ruolo admin");
-          }
-          console.log(roles);
-        }
         callMsGraph(response.accessToken).then((response) => {
           console.log(response);
           console.log(accounts);
