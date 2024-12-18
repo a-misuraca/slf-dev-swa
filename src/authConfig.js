@@ -45,7 +45,7 @@ export const msalConfig = {
 };
 
 export const loginRequest = {
-  scopes: ["profile", "openid", "User.read"],
+  scopes: ["profile", "openid", "User.read", "AuthenticatedUser"],
 };
 export const graphConfig = {
   graphMeEndpoint: "https://graph.microsoft.com/v1.0/me", //e.g. https://graph.microsoft.com/v1.0/me
