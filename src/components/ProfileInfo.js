@@ -2,12 +2,23 @@ import React, { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import { callMsGraph } from "../graph";
+import { useNavigate } from "react-router-dom";
+
 const ProfileInfo = () => {
   const { instance, accounts } = useMsal();
   const [graphData, setGraphData] = useState();
+  const navigate = useNavigate();
 
   function RequestProfileData() {
-    instance.setActiveAccount(accounts);
+    const activeAccount = instance.getActiveAccount();
+
+    if (!activeAccount) {
+      console.error(
+        "Nessun account attivo trovato. L'utente deve autenticarsi."
+      );
+      navigate("/");
+      return;
+    }
     instance
       .acquireTokenSilent({
         ...loginRequest,
