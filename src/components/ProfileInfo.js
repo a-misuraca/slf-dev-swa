@@ -32,6 +32,46 @@ const ProfileInfo = () => {
         });
       });
   }
+
+  async function callBackend (accessToken) {
+
+    fetch('https://dev-api-slf.azure-api.net/heroku/v2/getDocument/AXPODT2022-630736552-6936587', {
+      method: 'GET',
+      headers: {
+          "Authorization": 'Bearer ' + accessToken,
+          "Ocp-Apim-Subscription-Key": "fcac52a4a3a9490a92b3407e0000dddb"
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('data', data)
+        // document.getElementById('FieldTableBeResponse').innerText = JSON.stringify(data, null, 2);
+    })
+    .catch(error => {
+      console.log('error', error)
+        // document.getElementById('FieldTableBeResponse').innerText = error;
+    });
+  }
+
+ 
+  function RequestBackendData() {
+    const activeAccount = instance.getActiveAccount();
+    const loginRequestBackend = { scopes: ["api://a377054a-6449-472a-8972-cf0026b6adcb/AuthenticatedUser"], account: accounts[0]}
+    if (!activeAccount) {
+      console.error(
+        "Nessun account attivo trovato. L'utente deve autenticarsi."
+      );
+      navigate("/");
+      return;
+    }
+    instance
+      .acquireTokenSilent(loginRequestBackend)
+      .then((response) => {
+        callBackend(response.accessToken).then((response) => {
+          console.log("Resp BE", response);
+        });
+      });
+  }
   function handleLogout() {
     instance
       .logoutRedirect()
@@ -54,6 +94,11 @@ const ProfileInfo = () => {
       {accounts && (
         <button variant="secondary" onClick={RequestProfileData}>
           Request Profile Information
+        </button>
+      )}
+       {accounts && (
+        <button variant="secondary" onClick={RequestBackendData}>
+          Request RequestBackendData
         </button>
       )}
       {graphData && (

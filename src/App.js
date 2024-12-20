@@ -59,7 +59,7 @@ const App = ({ instance }) => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/data" element={<ProfileInfo />} />
-          {/*   <Route exact path="/data" element={<DataPage />} />
+          {/* <Route exact path="/datahk" element={<DataPage />} />
           <Route exact path="/logout" element={<LogoutPage />} /> */}
         </Routes>
       </Router>
