@@ -48,5 +48,5 @@ export const loginRequest = {
   scopes: ["profile", "openid", "User.read"],
 };
 export const graphConfig = {
-  graphMeEndpoint: "https://graph.microsoft.com/v1.0/me", //e.g. https://graph.microsoft.com/v1.0/me
+  graphMeEndpoint: "https://graph.microsoft.com/beta/me", //e.g. https://graph.microsoft.com/v1.0/me
 };
